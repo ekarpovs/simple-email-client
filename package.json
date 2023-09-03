@@ -1,0 +1,93 @@
+{
+  "name": "@ekarpovs/simple-email-client",
+  "version": "0.0.0-development",
+  "description": "A base npm package for use in my Node.js projects.",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "clean": "./node_modules/.bin/rimraf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json && move-file lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "test": "jest --detectOpenHandles --coverage --verbose",
+    "prepack": "npm run build",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release --branches main",
+    "commit": "git-cz",
+    "dev": "nodemon src/index.ts"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekarpovs/simple-email-client.git"
+  },
+  "author": "ekarpovs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ekarpovs/simple-email-client/issues"
+  },
+  "homepage": "https://github.com/ekarpovs/simple-email-client#readme",
+  "keywords": [
+    "npm",
+    "javascript",
+    "typescript",
+    "esm",
+    "cjs",
+    "nodejs",
+    "commonjs",
+    "ecmascript"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/jest": "^29.5.4",
+    "@types/nodemailer": "^6.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.47.0",
+    "husky": "^8.0.0",
+    "jest": "^29.6.3",
+    "move-file-cli": "^3.0.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.2",
+    "rimraf": "^5.0.1",
+    "semantic-release": "^21.1.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "handlebars": "^4.7.8",
+    "nodemailer": "^6.9.4"
+  }
+}
