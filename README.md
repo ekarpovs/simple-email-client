@@ -17,7 +17,41 @@ A simple email client for sending email via Gmail.
   </a>
 </p>
 
+## For the Email Client users:
+### Installation
+Download the ekarpovs-simple-email-client-0.0.0-development.tgz for you computer and  
+from the root directory of you project run the command:
+```bash
+  npm install <abs path to the archive>/ekarpovs-simple-email-client-0.0.0-development.tgz 
+```
+### Usage
+```
+import EmailClient from "@ekarpovs/simple-email-client";
+import { EmailParams } from "@ekarpovs/simple-email-client/lib/cjs/types/Types";
 
+const config = {
+  name: "gmail",
+  user: "<the-account-owner-email>",
+  password: "<the-account-owner-password>"
+};
+
+const emailClient = new EmailClient.EmailClient(config);
+
+const params: EmailParams = {
+  email: "<receiver-email>",
+  name: "<receiver-name>",
+};
+
+const send = async (email) => {
+  await emailClient.sendEmail(email);    
+};
+
+const email = emailClient.buildEmail("signUpUser", params);
+send(email);
+```
+
+
+## For the Email Client developers:
 ### The project file system tree:
 
 ├── .github  
@@ -64,19 +98,29 @@ A simple email client for sending email via Gmail.
   - publishing the package.    
 
 ### The project dependencies
-- [dotenv](https://www.npmjs.com/package/dotenv) - Loads environment variables from a .env file into process.env,  
 - [nodemailer](https://www.npmjs.com/package/nodemailer) - Sends emails from Node.js,  
 - [handlebars](https://www.npmjs.com/package/handlebars) - Templates compiler. 
 
-#### 3. Prepare to publish the package:  
-##### 3.1. [Sign up with npm](https://www.npmjs.com/signup).
-##### 3.2. Sign in with your npm account in the terminal:
+#### Local testing
+#### 1. Prepare the package archive
+```bash
+  npm run build
+  npm pack
+```
+#### 2. Use the package archive for testing in a project: 
+From the root folder of the project install locally
+```bash
+  npm install <abs path to the archive>/ekarpovs-simple-email-client-0.0.0-development.tgz 
+```
+#### Prepare to publish the package:  
+##### 1. [Sign up with npm](https://www.npmjs.com/signup).
+##### 2. Sign in with your npm account in the terminal:
     ```bash
     npm login 
     follow the on-screen instructions
     ```
-#### 4. Publish the package:
-##### 4.1. Manual publishing:
+#### Publish the package:
+##### 1. Manual publishing:
  - Check the contents that will be included in the published version of the package:
     ```bash
     npx npm-packlist-cli
@@ -90,7 +134,7 @@ A simple email client for sending email via Gmail.
     npm publish --access=public
     ```
     Note: --access=public is needed for scoped package (`@scope/<package-name>`) as it's private by default. If it's not scoped and doesn't have the `private` field set to `true` in `package.json` it will be public as well.
-##### 4.2 Automated publishing:
+##### 2 Automated publishing:
     The publishing process is defined via Github Actions:
     - ci.yaml - build and tests.
     - npm.yaml - publish the package to the npm registry.

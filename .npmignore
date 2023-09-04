@@ -1,0 +1,15 @@
+.github
+.husky
+.vscode
+coverage
+node_modules
+src
+test
+.eslintrc
+.gitignore
+.prettierrc
+.releaserc.json
+babel.config.js
+jest.config.js
+package-lock.json
+tsconfig*
