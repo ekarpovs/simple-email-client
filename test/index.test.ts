@@ -1,8 +1,7 @@
 import {describe, test} from '@jest/globals';
 
 import { EmailClient } from "../src/EmailClient";
-import { Types } from "../src/index";
-import { TransportConfig } from '../src/Types';
+import { EmailParams, TransportConfig } from '../src/Types';
 
 
 describe("Simple Email Client E2E test", () => {
@@ -15,9 +14,9 @@ describe("Simple Email Client E2E test", () => {
     };
     
     const emailClient = new EmailClient(config);
-    const params: Types.EmailParams = {
+    const params: EmailParams = {
       email: "<receiver-email>",
-      name: "Mail Receiver",
+      name: "<receiver-name>",
     };
     
     const email = emailClient.buildEmail("signUpUser", params);
