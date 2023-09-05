@@ -17,7 +17,6 @@ A simple email client for sending email via Gmail.
   </a>
 </p>
 
-## For the Email Client users:
 ### Installation
 Download the ekarpovs-simple-email-client-0.0.0-development.tgz for you computer and  
 from the root directory of you project run the command:
