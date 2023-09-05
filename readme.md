@@ -18,8 +18,7 @@ A simple email client for sending email via Gmail.
 </p>
 
 ### Installation
-Download the ekarpovs-simple-email-client-0.0.0-development.tgz for you computer and  
-from the root directory of you project run the command:
+Download the [ekarpovs-simple-email-client-0.0.0-development.tgz](https://github.com/ekarpovs/pakages-repo/tree/main/simple-email-client) to your computer and from the root directory of you project run the command:
 ```bash
   npm install <abs path to the archive>/ekarpovs-simple-email-client-0.0.0-development.tgz 
 ```
