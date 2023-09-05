@@ -1,6 +1,6 @@
 import {describe, test} from '@jest/globals';
 
-import { EmailClient } from "../src/EmailClient";
+import { EmailClient } from "../src";
 import { EmailParams, TransportConfig } from '../src/Types';
 
 

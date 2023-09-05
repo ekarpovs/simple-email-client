@@ -17,41 +17,6 @@ A simple email client for sending email via Gmail.
   </a>
 </p>
 
-## For the Email Client users:
-### Installation
-Download the ekarpovs-simple-email-client-0.0.0-development.tgz for you computer and  
-from the root directory of you project run the command:
-```bash
-  npm install <abs path to the archive>/ekarpovs-simple-email-client-0.0.0-development.tgz 
-```
-### Usage
-```
-import EmailClient from "@ekarpovs/simple-email-client";
-import { EmailParams } from "@ekarpovs/simple-email-client/lib/cjs/types/Types";
-
-const config = {
-  name: "gmail",
-  user: "<the-account-owner-email>",
-  password: "<the-account-owner-password>"
-};
-
-const emailClient = new EmailClient.EmailClient(config);
-
-const params: EmailParams = {
-  email: "<receiver-email>",
-  name: "<receiver-name>",
-};
-
-const send = async (email) => {
-  await emailClient.sendEmail(email);    
-};
-
-const email = emailClient.buildEmail("signUpUser", params);
-send(email);
-```
-
-
-## For the Email Client developers:
 ### The project file system tree:
 
 ├── .github  
