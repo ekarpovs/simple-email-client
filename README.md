@@ -113,8 +113,8 @@ From the root folder of the project install locally
 
 Linting:
 ```bash
-npm run eslint
-npm run eslint:fix
+npm run lint
+npm run lint:fix
 ```
 Commit (use the command instead of git commit for write a conventional message):
 ```bash
@@ -138,6 +138,11 @@ Prepack:
 ```bash
 npm run prepack
 ```
+Pack for local installation:
+```bash
+npm run pack:local
+```
+
 Prepare:
 ```bash
 npm run prepare

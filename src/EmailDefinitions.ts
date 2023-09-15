@@ -11,7 +11,7 @@ const linkFormatter = (params: EmailParams): EmailParams => {
   };
 };
 
-export const signUpUser: EmailResources = {
+export const register: EmailResources = {
   template: 
   `
   <html>

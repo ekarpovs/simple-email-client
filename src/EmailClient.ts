@@ -1,5 +1,5 @@
 import { buildEmail } from "./EmailBuilder";
-import { resetPassword, resetPasswordRequest, signUpUser} from "./EmailDefinitions";
+import { register, resetPassword, resetPasswordRequest } from "./EmailDefinitions";
 import { 
   getEmailResources,
   removeEmailResources,
@@ -21,7 +21,7 @@ export class EmailClient {
   };
 
   private setPreDefinedResources(): void {
-    this.setEmailResources("signUpUser", signUpUser);  
+    this.setEmailResources("register", register);  
     this.setEmailResources("resetPasswordRequest", resetPasswordRequest);  
     this.setEmailResources("resetPassword", resetPassword);  
   };
