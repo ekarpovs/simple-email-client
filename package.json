@@ -1,6 +1,6 @@
 {
   "name": "@ekarpovs/simple-email-client",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "A base npm package for use in my Node.js projects.",
   "exports": {
     ".": {
