@@ -1,4 +1,4 @@
-name: Release Npm
+name: Publish Package to NPM registry
 
 on:
   workflow_dispatch:
